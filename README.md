@@ -20,4 +20,4 @@ Reusable agent skills (SKILL.md format), promoted one-way from a private repo. I
 
 ## License
 
-LICENSE: TODO (not yet chosen)
+MIT, see [LICENSE](LICENSE).
