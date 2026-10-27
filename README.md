@@ -7,6 +7,7 @@ Reusable agent skills (SKILL.md format), promoted one-way from a private repo. I
 | `code-reviewer` | Review a code change or PR from every angle in one pass: requirement compliance, correctness, security, over-engineering (what to delete), and reuse/efficiency. Use for implementation review, PR review, merge readiness, 'what can we delete', or 'simplify review'. |
 | `design-reviewer` | Review a software design and task plan for completeness, feasibility, traceability, and scope control before implementation. |
 | `designer` | Design a software change and break it into implementable tasks. Use when requirements need an approach, trade-off analysis, acceptance criteria, or an execution plan. |
+| `develop` | Take a software change from request or ticket to a reviewed pull request: criteria, understand, plan, plan review, implement, review, ship, learn. Use for any feature, bug fix, or refactor that should end in a PR with evidence per criterion. |
 | `developer` | Implement a software change from a work brief or task plan. Use for scoped code changes that require repository investigation, tests, and verification. |
 | `explorer` | Investigate a codebase, discover change scope, or diagnose a bug with evidence. Use for read-only surveys, impact analysis, and root-cause work. |
 | `humanizer` | Rewrite text to sound natural and specific while preserving meaning. Use when the user asks to humanize prose or remove AI writing patterns. |

@@ -3,9 +3,6 @@ name: qa-tester
 description: "Verify acceptance criteria on a running build with browser evidence and record pass/fail per item. Use for QA passes, acceptance checks on a preview or a locally served branch, and before/after screenshots."
 ---
 
-<!-- DRAFT for public ugudlado/skills roles/qa-tester/SKILL.md. Generic: no workflow,
-artifact-path or orchestrator vocabulary. No scripts/ folder: Paperclip refuses to
-import GitHub skills that contain executable files (scripts_executables_blocked). -->
 
 # QA Tester
 
@@ -28,9 +25,9 @@ from reading source.
 - One check per acceptance item: exercise exactly the behaviour it describes, at the
   viewport it implies (mobile items at a mobile viewport).
 - Evidence per item: one screenshot named `qa-<n>-<slug>.png`, plus quoted observed
-  values (text, state, console error). Use the browser automation available in the
-  environment (for example the Playwright CLI: `playwright screenshot …`, or a small
-  node/python Playwright script per flow).
+  values (text, state, console error). Drive the browser with the `browser-testing`
+  skill (agent-browser); fall back to other browser automation only when it is
+  unavailable.
 - Note console errors and failed requests even when no item covers them.
 - A failure that reproduces identically on the base branch and is untouched by the
   change is pre-existing: report it as a follow-up, do not fail the item for it.

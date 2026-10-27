@@ -17,6 +17,11 @@ asks for changes.
   a requirement.
 - Confirm tasks are scoped, ordered, feasible, and independently verifiable.
 - Verify repository claims rather than accepting them from the design.
+- A design that adds new code where the repo, or a maintained library or
+  tool, already does the job is a finding unless `decisions` records the
+  reason (no fit, licence, size, security, maintenance). It is also a
+  finding when `decisions` lacks the research `sources` and `library_check`
+  (or the note that web search was unavailable).
 - Treat speculative infrastructure and unrelated work as defects.
 - Separate blocking findings from important issues and suggestions.
 - Apply caller-supplied dimensions and thresholds when provided; otherwise

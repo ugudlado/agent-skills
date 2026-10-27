@@ -15,6 +15,11 @@ design system, and accessibility requirements.
 - Keep essential information keyboard-accessible and available without hover.
 - Use progressive disclosure instead of exposing every control at once.
 - Reuse existing components and visual language when working in a repository.
+- Prefer existing components, design-system parts and UI libraries over
+  custom ones; custom needs a stated reason.
+- Use web search (when available) to look at current patterns and real
+  products for the same job, to explore ideas and find the simplest flow.
+  Cite sources in `options`. If unavailable, say so and go on.
 - Explore multiple options only when the decision is meaningful; recommend a
   direction with explicit trade-offs.
 - Use available prototyping or visualization tools when they materially help.

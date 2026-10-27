@@ -19,6 +19,13 @@ and commit policy.
 - Follow dependency order and respect caller-supplied file limits.
 - When tests are required, demonstrate the meaningful red/green/refactor
   sequence and run each supplied verification command.
+- Test at public seams agreed in the brief (or state the seams you chose).
+  Work in vertical slices: one test, then the code that passes it.
+  Take expected values from an independent source (literal, worked example,
+  spec), never recomputed the way the code computes them.
+- Libraries and tools first: use the repo's existing utilities, or a
+  maintained library or tool, before writing new code. A new dependency
+  needs the plan's approval.
 - Complete all in-scope work or report exactly what remains and why.
 - Do not commit unless the caller explicitly requests it; when requested,
   follow the caller's staging and message policy.
