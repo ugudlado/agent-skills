@@ -1,6 +1,6 @@
 ---
 name: develop
-description: "Take a software change from request or ticket to a reviewed pull request: criteria, understand, plan, plan review, implement, review, ship, learn. Use for any feature, bug fix, or refactor that should end in a PR with evidence per criterion."
+description: "Take a software change from request or ticket to a reviewed pull request: criteria, understand, plan, plan review, implement, review, ship, learn. Use for any feature, bug fix, or refactor that should end in a PR with evidence per criterion. Not for coding one scoped task (use developer)."
 ---
 
 # Develop
@@ -15,7 +15,7 @@ to use each, what each hands to the next, and where to stop.
    title and description. If one is unclear with no sensible default: ask one
    question when a human is present, otherwise record the assumption and go on.
 2. **Understand.** `explorer`: `discovery` for a feature, `diagnosis` for a
-   bug (red loop first). Hands on: scope, constraints, or root cause.
+   bug (red loop first; ask for the minimal fix too). Hands on: scope, constraints, or root cause.
 3. **Plan.** A UI change runs `ux-designer` for the flow first, then
    `designer`; both research with web search when available. `designer`:
    ordered tasks, each with files and its own verification. Bug: the
@@ -25,20 +25,21 @@ to use each, what each hands to the next, and where to stop.
 5. **Implement.** `developer`, task by task in plan order. Independent tasks
    may go to subagents on a cheaper model; each brief carries the task, the
    files, the constraints and the verification commands, and the subagent
-   loads `developer` itself. Read every diff yourself: a report is a claim.
+   loads `developer` itself. Developers do not commit; Ship does. Read every diff yourself: a report is a claim.
 6. **Review.** `code-reviewer`, fresh context, strongest available model.
    At most 3 rounds; findings still open after round 3 go under "Open issues".
    A visible change (a screen, page, rendered email or chart, CLI output a
    person reads) needs screenshots of every changed screen: after, plus before
    when an existing screen changed. Seeded or test data only, never secrets or
-   real user data. Use `qa-tester` (or `browser-testing`) where a browser is
+   real user data. Use `qa-tester` where a browser is
    available. The reviewer gets them; none on a visible change is a required
    fix unless the reason they could not be captured is recorded.
 7. **Ship.** Re-run final verification, then commit, push and open a PR whose
    body maps each criterion to its evidence. Never merge. Screenshots go in
    the PR body itself: pass each as `--attach '<file>#<caption>'` to
-   `gh pr create` or `gh pr edit` (gh 2.99+; gh appends them to the body).
-   Never commit them. If they could not be captured, open the PR as a draft
+   `gh pr create` or `gh pr edit` (gh 2.99+; gh appends them to the body). On older gh, upload
+   the images without committing them (for example a PR comment) and link
+   them in the body. Never commit them. If they could not be captured, open the PR as a draft
    and say why in the body.
 8. **Learn.** `learner`, only when a stage looped, a reviewer found a real
    defect, or a human corrected the work. Proposals only; apply nothing.
@@ -46,7 +47,8 @@ to use each, what each hands to the next, and where to stop.
 ## Small changes
 
 One file and about 20 changed lines or fewer (tests and docs count): skip
-stages 3 and 4 and subagents. Stages 1, 2, 5, 6 and 7 still run.
+stages 3 and 4 and subagents. A new dependency is not a small change:
+escalate to the full flow. Stages 1, 2, 5, 6 and 7 still run.
 
 ## Runner policy
 

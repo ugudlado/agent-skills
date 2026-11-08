@@ -3,3 +3,4 @@
 */metrics.md
 */runs/
 *.promote.lock
+.tmp/

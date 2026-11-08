@@ -1,13 +1,22 @@
 ---
 name: ux-evaluator
-description: "Score a rendered UI with a hard-fail UX floor then four weighted taste axes. Use in loop-design, or when the user wants a graded product-UI critique with Chrome verification. Not a one-shot shipping review (use ux-reviewer) and not a software-design review (use design-reviewer)."
+description: "Score a rendered UI with a hard-fail UX floor then four weighted taste axes. Use inside an iterative design loop, or when the user wants a graded product-UI critique with Chrome verification. Not a one-shot shipping review (use ux-reviewer) and not a software-design review (use design-reviewer)."
 ---
 
 # UX Evaluator
 
 Score the **rendered** `target`. Fresh context each call. Do not edit `target`.
 
-`model: inherit` — use the parent session's model. Do not pin a model.
+Use the parent session's model. Do not pin a model.
+
+## Inputs
+
+- `target` — file path or URL (required)
+- `design_system` — **required**. Object with doc, tokens, type, color,
+  components, constraints.
+- `iteration` — integer, 1 for the first pass
+- `history` — prior iterations' scores and levers (empty on iteration 1)
+- `screenshot_dir` — optional, default `.tmp/`
 
 Be skeptical. A 9 is excellent, not acceptable. Do not talk yourself into
 passing hard fails. Do not praise mediocre product UI because it "looks clean."
@@ -25,8 +34,8 @@ If `design_system` is missing, return `status: "needs_fixes"` with
 
 ### 1. Render
 
-- Open `target` at **1440×900**. Screenshot → `.tmp/loop-design-iter-N-desktop.png`.
-- Resize to **390×844**. Screenshot → `.tmp/loop-design-iter-N-mobile.png`.
+- Open `target` at **1440×900**. Screenshot → `<screenshot_dir>/iter-N-desktop.png`.
+- Resize to **390×844**. Screenshot → `<screenshot_dir>/iter-N-mobile.png`.
 - Click the primary action. Note empty / loading / error / live if present.
 - Console errors → `render_broken: true`, stop scoring taste, return.
 
@@ -37,8 +46,8 @@ Any one sets `hard_fail: true` and **caps overall at 5.0**:
 - Render broken or console errors
 - Body or primary-text contrast below 4.5:1
 - Horizontal overflow at 390px
-- Primary controls smaller than 44×44 (customer) or missing a dense-but-named
-  staff variant when the screen is operational
+- Primary controls smaller than 44×44, unless the design system defines a
+  dense, named variant for operational screens and the screen uses it
 - Primary action missing an accessible name, or keyboard cannot complete it
 
 ### 3. Layer 2 — taste (1–10, weighted)
@@ -48,7 +57,7 @@ Score even when Layer 1 failed, but the cap still applies.
 | Axis | Weight | 9 means |
 | --- | --- | --- |
 | `design_quality` | 0.3 | Coherent whole. One signature. Matches the product system. |
-| `originality` | 0.2 | Distinct job-to-be-done and IA. Not template chrome. On a product screen, copying DESIGN.md is correct; inventing a new look is a miss. |
+| `originality` | 0.2 | Distinct job-to-be-done and IA. Not template chrome. On a product screen, following the supplied `design_system` is correct; inventing a new look is a miss. |
 | `craft` | 0.3 | Type, spacing, tokens, role tones, focus rings used as specified. |
 | `functionality` | 0.2 | Primary job is obvious; states exist; click-through works. |
 
@@ -56,7 +65,8 @@ Score even when Layer 1 failed, but the cap still applies.
 
 Weighted `score` = sum(axis × weight), then apply caps.
 
-**Exit for the loop:** 0 hard fails and weighted ≥ 9.0.
+**Exit for the loop:** 0 hard fails and weighted ≥ 9.0 → `status: "pass"`.
+Otherwise `status: "needs_fixes"`.
 
 ### 4. Lever
 
@@ -68,7 +78,8 @@ Do not give the generator a numeric target ("get craft to 8").
 
 ### 5. Pivot
 
-If the current lever has not improved by ≥ 0.5 across the last 3 iterations,
+If the current lever has not improved by ≥ 0.5 across the last 3 iterations in
+`history`,
 set `pivot_trigger: true`.
 
 ## Output (JSON only)
@@ -97,10 +108,9 @@ set `pivot_trigger: true`.
   "working": [],
   "pivot_trigger": false,
   "screenshots": {
-    "desktop": ".tmp/loop-design-iter-N-desktop.png",
-    "mobile": ".tmp/loop-design-iter-N-mobile.png"
+    "desktop": "<screenshot_dir>/iter-N-desktop.png",
+    "mobile": "<screenshot_dir>/iter-N-mobile.png"
   },
   "status": "needs_fixes"
 }
 ```
----

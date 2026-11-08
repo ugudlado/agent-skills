@@ -1,6 +1,6 @@
 ---
 name: design-reviewer
-description: "Review a software design and task plan for completeness, feasibility, traceability, and scope control before implementation."
+description: "Review a software design and task plan for completeness, feasibility, traceability, and scope control before implementation. Use for plan review, design sign-off, or before handing a plan to developer."
 ---
 
 # Design Reviewer

@@ -1,6 +1,6 @@
 ---
 name: ux-reviewer
-description: "Review an interface or prototype for accessibility, hierarchy, consistency, and user friction before shipping."
+description: "Review an interface or prototype for accessibility, hierarchy, consistency, and user friction before shipping. Use for UI review, accessibility checks, or pre-ship UX sign-off."
 ---
 
 # UX Reviewer
