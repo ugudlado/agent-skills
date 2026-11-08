@@ -14,9 +14,9 @@ Use the parent session's model. Do not pin a model.
 - `target` — file path or URL (required)
 - `design_system` — **required**. Object with doc, tokens, type, color,
   components, constraints.
-- `iteration` — integer, 1 for the first pass
+- `iteration` — integer, 1 for the first pass (the N in screenshot names)
 - `history` — prior iterations' scores and levers (empty on iteration 1)
-- `screenshot_dir` — optional, default `.tmp/`
+- `screenshot_dir` — optional, default `.tmp`
 
 Be skeptical. A 9 is excellent, not acceptable. Do not talk yourself into
 passing hard fails. Do not praise mediocre product UI because it "looks clean."

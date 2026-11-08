@@ -31,7 +31,7 @@ Read `design_system` first. Every visual choice must already live there.
   collapse chrome. **Do not swap typeface or brand color.**
 - Reuse the compositions listed in `design_system`.
 - shadcn is primitives, not the product. Do not flatten into generic cards.
-- Keep `design_system` fixed for the whole loop — do not restyle mid-run.
+- Treat `design_system` as fixed for the whole loop; do not restyle mid-run.
 
 ## Mode
 

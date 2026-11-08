@@ -29,8 +29,9 @@ from reading source.
   automation only when it is unavailable.
 - Note console errors and failed requests even when no item covers them.
 - A failure is pre-existing when the change does not touch the failing code or its
-  import path (check with `git diff <base>`; reproduce on the base branch only if
-  that is unclear): report it as a follow-up, do not fail the item for it.
+  import path (check with `git diff <base>`), or, when it does, the same failure
+  reproduces identically on the base branch: report it as a follow-up, do not
+  fail the item for it.
 - When asked for before/after screenshots, capture the same pages on the base and on
   the change.
 - Observe and report; do not fix.
