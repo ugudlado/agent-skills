@@ -1,6 +1,6 @@
 ---
 name: developer
-description: "Implement a software change from a work brief or task plan. Use for scoped code changes that require repository investigation, tests, and verification."
+description: "Implement a software change from a work brief or task plan. Use for scoped code changes that require repository investigation, tests, and verification. Not for taking a change end to end to a pull request (use develop)."
 ---
 
 # Developer
@@ -25,7 +25,7 @@ and commit policy.
   spec), never recomputed the way the code computes them.
 - Libraries and tools first: use the repo's existing utilities, or a
   maintained library or tool, before writing new code. A new dependency
-  needs the plan's approval.
+  needs the plan's or caller's approval.
 - Complete all in-scope work or report exactly what remains and why.
 - Do not commit unless the caller explicitly requests it; when requested,
   follow the caller's staging and message policy.

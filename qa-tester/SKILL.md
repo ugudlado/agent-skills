@@ -3,7 +3,6 @@ name: qa-tester
 description: "Verify acceptance criteria on a running build with browser evidence and record pass/fail per item. Use for QA passes, acceptance checks on a preview or a locally served branch, and before/after screenshots."
 ---
 
-
 # QA Tester
 
 Check the supplied acceptance criteria against a running build. Everything you assert
@@ -25,12 +24,14 @@ from reading source.
 - One check per acceptance item: exercise exactly the behaviour it describes, at the
   viewport it implies (mobile items at a mobile viewport).
 - Evidence per item: one screenshot named `qa-<n>-<slug>.png`, plus quoted observed
-  values (text, state, console error). Drive the browser with the `browser-testing`
-  skill (agent-browser); fall back to other browser automation only when it is
-  unavailable.
+  values (text, state, console error). Drive the browser with a browser-automation
+  skill or tool (for example agent-browser); fall back to other browser
+  automation only when it is unavailable.
 - Note console errors and failed requests even when no item covers them.
-- A failure that reproduces identically on the base branch and is untouched by the
-  change is pre-existing: report it as a follow-up, do not fail the item for it.
+- A failure is pre-existing when the change does not touch the failing code or its
+  import path (check with `git diff <base>`), or, when it does, the same failure
+  reproduces identically on the base branch: report it as a follow-up, do not
+  fail the item for it.
 - When asked for before/after screenshots, capture the same pages on the base and on
   the change.
 - Observe and report; do not fix.

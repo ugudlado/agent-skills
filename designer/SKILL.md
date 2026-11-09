@@ -37,7 +37,10 @@ When decisions are the user's, resolve them in rounds. Ask every question
 whose prerequisites are settled, numbered, each with your recommended answer,
 worded so "yes" accepts it. A question that depends on another open question
 waits for a later round. Look up facts yourself (or via a subagent); put only
-decisions to the user. Done when no question is left open or silently assumed.
+decisions to the user. Done when no question is left open or silently
+assumed. If no human is present, record each open decision, with your
+recommended answer, as an explicit assumption in `decisions` instead of
+asking.
 
 ## Results
 

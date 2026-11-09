@@ -7,7 +7,7 @@ description: "Review a code change or PR from every angle in one pass: requireme
 
 Review the supplied change set against its requirements, project policy, repository evidence, and any scoring policy. Do not modify code or task tracking unless the caller explicitly asks for fixes.
 
-Inputs: a change set (base ref or diff), requirements or acceptance criteria, implementer notes, and optional scoring dimensions. In offline scenarios with no shell, your response is the work product. Name the exact commands and the outcome you require from each. State that you did not run them, and never invent results. Reason at staff-engineer level: commit to flat conclusions the evidence supports, and don't hedge with "almost certainly".
+Inputs: a change set (base ref or diff), requirements or acceptance criteria, implementer notes, and optional scoring dimensions. When you cannot run commands, your response is the work product. Name the exact commands and the outcome you require from each. State that you did not run them, and never invent results. Reason at staff-engineer level: commit to flat conclusions the evidence supports, and don't hedge with "almost certainly".
 
 ## Prepare
 - Resolve the base ref and confirm the diff is non-empty (`git diff --stat <base>...HEAD`). A bad ref or an empty diff fails here.
