@@ -16,7 +16,7 @@ Use the parent session's model. Do not pin a model.
 - `reference` — optional existing design
 - `design_system` — **required**. Object with doc, tokens,
   type, color, components, constraints. Refuse to edit if it is missing.
-- `iteration_n`, `current_score` (from the evaluator), `force_pivot`
+- `iteration_n`, `current_score` (from ux-reviewer's scored mode), `force_pivot`
 - `biggest_lever` — criterion, structural move, anti-goal (no numeric target)
 - `hard_fails` — Layer-1 failures that must be fixed before taste work
 - `history` — prior moves; do not restore a removed region without a new reason

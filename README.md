@@ -15,9 +15,8 @@ Reusable agent skills (SKILL.md format), promoted one-way from a private repo. I
 | `learner` | Reflect on completed work and turn observed failures or successes into durable, testable process improvements. Use for retrospectives and prompt or workflow learning. |
 | `qa-tester` | Verify acceptance criteria on a running build with browser evidence and record pass/fail per item. Use for QA passes, acceptance checks on a preview or a locally served branch, and before/after screenshots. |
 | `ux-designer` | Design user flows, interface direction, and prototypes for a real product constraint. Use for UX exploration, interaction design, or interface prototyping. |
-| `ux-evaluator` | Score a rendered UI with a hard-fail UX floor then four weighted taste axes. Use inside an iterative design loop, or when the user wants a graded product-UI critique with Chrome verification. Not a one-shot shipping review (use ux-reviewer) and not a software-design review (use design-reviewer). |
 | `ux-generator` | Edit a target UI file in a design loop. Use inside an iterative design loop, when iterating a prototype HTML, or when the user wants a generator pass on a product UI. Not for one-shot UX exploration (use ux-designer) or shipping review (use ux-reviewer). |
-| `ux-reviewer` | Review an interface or prototype for accessibility, hierarchy, consistency, and user friction before shipping. Use for UI review, accessibility checks, or pre-ship UX sign-off. |
+| `ux-reviewer` | Review an interface or prototype for accessibility, hierarchy, consistency, and user friction before shipping. Use for UI review, accessibility checks, or pre-ship UX sign-off; with mode scored, grade a rendered UI (hard-fail floor, then four weighted taste axes) inside an iterative design loop. Not a software-design review (use design-reviewer). |
 
 ## License
 
