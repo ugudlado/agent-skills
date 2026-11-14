@@ -2,6 +2,8 @@
 
 Reusable agent skills (SKILL.md format), promoted one-way from a private repo. Issues welcome.
 
+Skills are tested with evals under each skill folder.
+
 | Skill | Description |
 |---|---|
 | `code-reviewer` | Review a code change or PR from every angle in one pass: requirement compliance, correctness, security, over-engineering (what to delete), and reuse/efficiency. Use for implementation review, PR review, merge readiness, 'what can we delete', or 'simplify review'. |
